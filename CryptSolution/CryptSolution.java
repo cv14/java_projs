@@ -19,52 +19,50 @@ import java.util.*;
 public class CryptSolution{
   public static boolean isCryptSolution(String[] crypt, char[][] solution) {
 
-      int num1, num2, num3;
+      long num1, num2, num3;
      LinkedHashMap<Character, Character> solMap = new LinkedHashMap<Character, Character>();
 
       for(int i = 0; i < solution.length; i++){
         solMap.put(solution[i][0],solution[i][1]);
       }
-      System.out.println(solMap);
+
+      char[] myNameChars = crypt[0].toCharArray();
 
       for (int i = 0; i < crypt[0].length(); i++) {
-          System.out.println(crypt[0]);
-          crypt[0] = crypt[0].replace(crypt[0].charAt(i),solMap.get(crypt[0].charAt(i)));
-          System.out.println(crypt[0]);
+        myNameChars[i] = solMap.get(crypt[0].charAt(i));
+        crypt[0] = String.valueOf(myNameChars);
       }
-      //System.out.println(crypt[0]);
 
+      myNameChars = crypt[1].toCharArray();
       for (int i = 0; i < crypt[1].length(); i++) {
-          crypt[1] = crypt[1].replace(crypt[1].charAt(i),solMap.get(crypt[1].charAt(i)));
+        myNameChars[i] = solMap.get(crypt[1].charAt(i));
+        crypt[1] = String.valueOf(myNameChars);
       }
-      //System.out.println(crypt[1]);
 
-
+      myNameChars = crypt[2].toCharArray();
       for (int i = 0; i < crypt[2].length(); i++) {
-          crypt[2] = crypt[2].replace(crypt[2].charAt(i),solMap.get(crypt[2].charAt(i)));
+        myNameChars[i] = solMap.get(crypt[2].charAt(i));
+        crypt[2] = String.valueOf(myNameChars);
       }
-      //System.out.println(crypt[2]);
-      if(crypt[0].length() > 1 && crypt[0].charAt(0) == '0'){
-        System.out.println("lado1");
+
+      if(crypt[0].length() > 1 && crypt[0].charAt(0) == '0' ||
+         crypt[1].length() > 1 && crypt[1].charAt(0) == '0' ||
+         crypt[2].length() > 1 && crypt[2].charAt(0) == '0'){
           return false;
       }
-      if(crypt[1].length() > 1 && crypt[1].charAt(0) == '0'){
-        System.out.println("lado2");
-          return false;
-      }
 
+      num1 = Long.parseLong(crypt[0]);
+      num2 = Long.parseLong(crypt[1]);
+      num3 = Long.parseLong(crypt[2]);
 
-
-      num1 = Integer.parseInt(crypt[0]);
-      num2 = Integer.parseInt(crypt[1]);
-      num3 = Integer.parseInt(crypt[2]);
-
+      //checking if word1 + word2 = word3
       if((num1 + num2) == num3){
         return true;
       }else{
         System.out.println("lado3");
         return false;
       }
+
   }
 
   public static void main(String[] args) {
@@ -74,10 +72,17 @@ public class CryptSolution{
             {'D', '7'},{'R', '8'},{'S', '9'}};
       System.out.println(isCryptSolution(crypt, solution));
 
-      String[] crypt1 = {"ABAB", "ABAB", "AA"};
-      char[][] solution1 = {{'A','0'}};
+      String[] crypt1 = {"AA", "BAA", "AA"};
+      char[][] solution1 = {{'A','1'}, {'B', '0'}};
       System.out.println(isCryptSolution(crypt1, solution1));
 
+      String[] crypt3 = {"AAAAAAAAAAAAAA","BBBBBBBBBBBBBB","CCCCCCCCCCCCCC"};
+      char[][] solution2 = {{'A','1'},{'B','2'},{'C','3'}};
+      System.out.println(isCryptSolution(crypt3, solution2));
 
+      String[] crypt4 =  {"WASD","IJKL","AOPAS"};
+      char[][] solution3 = {{'W','2'}, {'A','0'}, {'S','4'},{'D','1'},{'I','5'},
+              {'J','8'},{'K','6'},{'L','3'},{'O','7'},{'P','9'}};
+      System.out.println(isCryptSolution(crypt4, solution3));
   }
 }
