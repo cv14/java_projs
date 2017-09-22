@@ -42,15 +42,31 @@ import java.util.*;
 public class RemoveFromList {
 
   public static ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
-    ListNode<Integer> current = l.next;
-    // while(current != null){
-    //   if(current.value == k){
-    //       l = l.next;
-    //       System.out.println(current.value);
-    //   }
-    //   current = current.next;
-    // }
-    return l;
+
+    if(l == null){return null;}
+
+    ListNode<Integer> current = l;
+
+    if(current.value == k){
+            if (current.next == null) {
+                return null;
+            }
+
+            /* Copy the data of next node to head */
+            current.value = current.next.value;
+
+            // Remove the link of next node
+            current.next = current.next.next;
+        }
+
+    while(current.next != null){
+      if(current.next.value == k){
+        current.next = current.next.next;
+      }else{
+        current = current.next;
+      }
+    }
+    return l.value == k ? l.next : l;
   }
 
   public static void main(String[] args) {
@@ -61,10 +77,6 @@ public class RemoveFromList {
       ListNode<Integer> ll31 = new ListNode(3);
       ListNode<Integer> ll4 = new ListNode(4);
       ListNode<Integer> ll5 = new ListNode(5);
-      // ll1 = ll3.next;
-      // ll2 = ll1.next;
-      // ll31 = ll2.next;
-      // ll5 = ll4.next;
 
       ll3.next = ll1;
       ll1.next = ll2;
