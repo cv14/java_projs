@@ -1,7 +1,10 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -10,6 +13,9 @@ import org.apache.pdfbox.multipdf.Splitter;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 public class KenoPredictions {
+
+    private static LinkedHashMap<String, Integer> lhm;
+
     public static int countLines(String str) {
         if(str == null || str.isEmpty())
         {
@@ -23,8 +29,45 @@ public class KenoPredictions {
         return lines;
     }
 
+    public static void calculate(String keno){
+        //System.out.println(keno);
+
+
+        String[] sKeno = keno.split("\u00AD",0);
+
+        for(int i = 0; i < 20; i++){
+            //System.out.print(sKeno[i]+ " ");
+            if(i == 19){
+                String[] t = sKeno[i].split(" ");
+                if(lhm.containsKey(t[0])){
+                    lhm.put(t[0],lhm.get(t[0]) + 1);
+                }else{
+                    lhm.put(t[0], 1);
+                }
+
+            }else if(lhm.containsKey(sKeno[i])){
+                lhm.put(sKeno[i],lhm.get(sKeno[i]) + 1);
+            }else{
+                lhm.put(sKeno[i], 1);
+            }
+        }
+
+//        for (String key : lhm.keySet()) {
+//            System.out.print(key + ":" + lhm.get(key));
+//            System.out.print("  ");
+//        }
+//        System.out.println();
+        //System.out.println("\n" + Arrays.toString(sKeno));
+
+        //System.out.println(Arrays.toString(keno));
+
+    }
+
     public static void main(String[] args) {
-        
+
+       lhm = new LinkedHashMap<String, Integer>();
+
+
         try{
             PDDocument document = PDDocument.load(new File("test1.pdf"));
 
@@ -49,13 +92,19 @@ public class KenoPredictions {
                         lines[i] = String.valueOf(myNameChars);
                     }
                     lines[i] = lines[i].trim();
-                    System.out.println("Line no " +i  + ": " + lines[i]);
-                    //System.out.println(lines[i]);
+                    //System.out.println("Line no " +i  + ": " + lines[i]);
+                    calculate(lines[i]);
                 }
             }
         }catch (Exception e) {
            e.printStackTrace();
         }
+
+        for (String key : lhm.keySet()) {
+            System.out.print(key + ":" + lhm.get(key));
+            System.out.print("  ");
+        }
+        System.out.println();
 
 
 
