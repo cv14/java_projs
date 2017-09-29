@@ -24,11 +24,11 @@
       <file leaf-file-name="KenoPredictions.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="106" column="29" lean-forward="false" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+            <state relative-caret-position="615">
+              <caret line="41" column="50" lean-forward="false" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1506697660000" expanded="true" signature="3312:4046" ph="..." />
+                <marker date="1506704471000" expanded="true" signature="3838:4572" ph="..." />
               </folding>
             </state>
           </provider>
@@ -230,12 +230,12 @@
       <updated>1506187449392</updated>
       <workItem from="1506187452051" duration="1131000" />
       <workItem from="1506210339864" duration="9060000" />
-      <workItem from="1506599472061" duration="7946000" />
+      <workItem from="1506599472061" duration="9668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18137000" />
+    <option name="totallyTimeSpent" value="19859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1392" height="877" extended-state="0" />
@@ -297,7 +297,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506697660000" expanded="true" signature="3312:4046" ph="..." />
+            <marker date="1506704471000" expanded="true" signature="3838:4572" ph="..." />
           </folding>
         </state>
       </provider>
@@ -308,18 +308,18 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506697660000" expanded="true" signature="3312:4046" ph="..." />
+            <marker date="1506704471000" expanded="true" signature="3838:4572" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="106" column="29" lean-forward="false" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+        <state relative-caret-position="615">
+          <caret line="41" column="50" lean-forward="false" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506697660000" expanded="true" signature="3312:4046" ph="..." />
+            <marker date="1506704471000" expanded="true" signature="3838:4572" ph="..." />
           </folding>
         </state>
       </provider>

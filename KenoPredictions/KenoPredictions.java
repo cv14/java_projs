@@ -15,6 +15,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 public class KenoPredictions {
 
     private static LinkedHashMap<String, Integer> lhm;
+    private static LinkedHashMap<String, Integer> bonus;
 
     public static int countLines(String str) {
         if(str == null || str.isEmpty())
@@ -38,12 +39,21 @@ public class KenoPredictions {
         for(int i = 0; i < 20; i++){
             //System.out.print(sKeno[i]+ " ");
             if(i == 19){
-                String[] t = sKeno[i].split(" ");
+                String[] t = sKeno[i].split(" ", 2);
                 if(lhm.containsKey(t[0])){
                     lhm.put(t[0],lhm.get(t[0]) + 1);
                 }else{
                     lhm.put(t[0], 1);
                 }
+
+                if(bonus.containsKey(t[1])){
+                    bonus.put(t[1],bonus.get(t[1]) + 1);
+                }else{
+                    //System.out.println(t[1]);
+                    bonus.put(t[1], 1);
+                }
+
+
 
             }else if(lhm.containsKey(sKeno[i])){
                 lhm.put(sKeno[i],lhm.get(sKeno[i]) + 1);
@@ -66,6 +76,7 @@ public class KenoPredictions {
     public static void main(String[] args) {
 
        lhm = new LinkedHashMap<String, Integer>();
+       bonus = new LinkedHashMap<String, Integer>();
 
 
         try{
@@ -102,6 +113,12 @@ public class KenoPredictions {
 
         for (String key : lhm.keySet()) {
             System.out.print(key + ":" + lhm.get(key));
+            System.out.print("  ");
+        }
+        System.out.println();
+
+        for (String key : bonus.keySet()) {
+            System.out.print(key + ":" + bonus.get(key));
             System.out.print("  ");
         }
         System.out.println();
