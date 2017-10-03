@@ -62,15 +62,14 @@ public class KenoPredictions {
             }
         }
 
-//        for (String key : lhm.keySet()) {
-//            System.out.print(key + ":" + lhm.get(key));
-//            System.out.print("  ");
-//        }
-//        System.out.println();
-        //System.out.println("\n" + Arrays.toString(sKeno));
+    }
 
-        //System.out.println(Arrays.toString(keno));
-
+    public static void printHM(LinkedHashMap<String, Integer> mapa){
+        for (String key : mapa.keySet()) {
+            System.out.print(key + ":" + mapa.get(key));
+            System.out.print("  ");
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -80,7 +79,7 @@ public class KenoPredictions {
 
 
         try{
-            PDDocument document = PDDocument.load(new File("test1.pdf"));
+            PDDocument document = PDDocument.load(new File("test2.pdf"));
 
             Splitter splitter = new Splitter();
 
@@ -111,40 +110,8 @@ public class KenoPredictions {
            e.printStackTrace();
         }
 
-        for (String key : lhm.keySet()) {
-            System.out.print(key + ":" + lhm.get(key));
-            System.out.print("  ");
-        }
-        System.out.println();
-
-        for (String key : bonus.keySet()) {
-            System.out.print(key + ":" + bonus.get(key));
-            System.out.print("  ");
-        }
-        System.out.println();
-
-
-
-
-//        try {
-//            PDDocument document = null;
-//            document = PDDocument.load(new File("test.pdf"));
-//            document.getClass();
-//            if (!document.isEncrypted()) {
-//                PDFTextStripperByArea stripper = new PDFTextStripperByArea();
-//                stripper.setSortByPosition(true);
-//                PDFTextStripper Tstripper = new PDFTextStripper();
-//                String st = Tstripper.getText(document);
-//                while(st.charAt(i) != '\n'){
-//                    System.out.println("Text:" + st);
-//
-//                }
-//
-//                //System.out.println("Text:" + st);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        printHM(lhm);
+        printHM(bonus);
 
     }
 
