@@ -12,10 +12,44 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 import org.apache.pdfbox.multipdf.Splitter;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
+
 public class KenoPredictions {
 
     private static LinkedHashMap<String, Integer> lhm;
     private static LinkedHashMap<String, Integer> bonus;
+
+    public static String[] ngrams(String s, int len) {
+        System.out.println(s);
+        if (s.endsWith(" No Bonus")) {
+            s = s.substring(0, s.length() - 9);
+        }else if (s.endsWith(" 3x")) {
+            s = s.substring(0, s.length() - 3);
+        }else if (s.endsWith(" 4x")) {
+            s = s.substring(0, s.length() - 3);
+        } else if (s.endsWith(" 5x")) {
+            s = s.substring(0, s.length() - 3);
+        }else if (s.endsWith(" 10x")) {
+            s = s.substring(0, s.length() - 4);
+        }
+
+        System.out.println(s);
+
+
+
+
+        String[] parts = s.split("\u00AD");
+        String[] result = new String[parts.length - len + 1];
+        for(int i = 0; i < parts.length - len + 1; i++) {
+            StringBuilder sb = new StringBuilder();
+            for(int k = 0; k < len; k++) {
+                if(k > 0) sb.append(' ');
+                sb.append(parts[i+k]);
+            }
+            result[i] = sb.toString();
+        }
+        System.out.println("length " + result.length);
+        return result;
+    }
 
     public static int countLines(String str) {
         if(str == null || str.isEmpty())
@@ -102,8 +136,10 @@ public class KenoPredictions {
                         lines[i] = String.valueOf(myNameChars);
                     }
                     lines[i] = lines[i].trim();
-                    //System.out.println("Line no " +i  + ": " + lines[i]);
                     calculate(lines[i]);
+                    //System.out.println(Arrays.toString(lines[i]));
+                    System.out.println(Arrays.toString(ngrams(lines[i], 3)));
+
                 }
             }
         }catch (Exception e) {
@@ -112,6 +148,7 @@ public class KenoPredictions {
 
         printHM(lhm);
         printHM(bonus);
+
 
     }
 
