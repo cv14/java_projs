@@ -17,9 +17,10 @@ public class KenoPredictions {
 
     private static LinkedHashMap<String, Integer> lhm;
     private static LinkedHashMap<String, Integer> bonus;
+    private static LinkedHashMap<String[], Integer> combosHm;
 
-    public static String[] ngrams(String s, int len) {
-        System.out.println(s);
+    public static String[] nGrams(String s, int len) {
+        //System.out.println(s);
         if (s.endsWith(" No Bonus")) {
             s = s.substring(0, s.length() - 9);
         }else if (s.endsWith(" 3x")) {
@@ -32,13 +33,11 @@ public class KenoPredictions {
             s = s.substring(0, s.length() - 4);
         }
 
-        System.out.println(s);
-
-
-
+        //System.out.println(s);
 
         String[] parts = s.split("\u00AD");
         String[] result = new String[parts.length - len + 1];
+
         for(int i = 0; i < parts.length - len + 1; i++) {
             StringBuilder sb = new StringBuilder();
             for(int k = 0; k < len; k++) {
@@ -47,8 +46,31 @@ public class KenoPredictions {
             }
             result[i] = sb.toString();
         }
-        System.out.println("length " + result.length);
+        //System.out.println("length " + result.length);
         return result;
+
+    }
+
+    public static String[] cleanBack(String s){
+
+        if (s.endsWith(" No Bonus")) {
+            s = s.substring(0, s.length() - 9);
+        }else if (s.endsWith(" 3x")) {
+            s = s.substring(0, s.length() - 3);
+        }else if (s.endsWith(" 4x")) {
+            s = s.substring(0, s.length() - 3);
+        } else if (s.endsWith(" 5x")) {
+            s = s.substring(0, s.length() - 3);
+        }else if (s.endsWith(" 10x")) {
+            s = s.substring(0, s.length() - 4);
+        }
+
+        String[] numbs = s.split("\u00AD");
+
+        System.out.println(s);
+
+        return numbs;
+
     }
 
     public static int countLines(String str) {
@@ -106,6 +128,43 @@ public class KenoPredictions {
         System.out.println();
     }
 
+    public static void combosChecker(String[] temp){
+
+        System.out.println("result at : " + Arrays.toString(temp));
+
+        
+
+
+    }
+
+    public static void combinations2(String[] arr, int len, int startPosition, String[] result){
+        if (len == 0){
+            combosChecker(result);
+            return;
+        }
+        for (int i = startPosition; i <= arr.length-len; i++){
+            result[result.length - len] = arr[i];
+            combinations2(arr, len-1, i+1, result);
+        }
+    }
+
+    public static void calculateNgrams(String resultGrams, int n ){
+        String[] resultingCombs = new String[n];
+        //System.out.println(Arrays.toString(ngrams(resultGrams, n)));
+        System.out.println(resultGrams);
+        String[] r = cleanBack(resultGrams);
+        System.out.println(Arrays.toString(r));
+
+        combinations2(r,n, 0, resultingCombs);
+
+
+
+
+        //String[] result = nGrams(resultGrams, n);
+        //System.out.println(Arrays.toString(result));
+
+    }
+
     public static void main(String[] args) {
 
        lhm = new LinkedHashMap<String, Integer>();
@@ -138,7 +197,7 @@ public class KenoPredictions {
                     lines[i] = lines[i].trim();
                     calculate(lines[i]);
                     //System.out.println(Arrays.toString(lines[i]));
-                    System.out.println(Arrays.toString(ngrams(lines[i], 3)));
+                    calculateNgrams(lines[i], 3);
 
                 }
             }
@@ -148,7 +207,6 @@ public class KenoPredictions {
 
         printHM(lhm);
         printHM(bonus);
-
 
     }
 
