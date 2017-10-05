@@ -24,14 +24,13 @@
       <file leaf-file-name="KenoPredictions.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="134" column="8" lean-forward="false" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+            <state relative-caret-position="369">
+              <caret line="138" column="9" lean-forward="true" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
                 <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
                 <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-                <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
                 <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
               </folding>
             </state>
@@ -240,12 +239,12 @@
       <updated>1506187449392</updated>
       <workItem from="1506187452051" duration="1131000" />
       <workItem from="1506210339864" duration="9060000" />
-      <workItem from="1506599472061" duration="21080000" />
+      <workItem from="1506599472061" duration="21993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31271000" />
+    <option name="totallyTimeSpent" value="32184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1392" height="877" extended-state="0" />
@@ -310,7 +309,6 @@
             <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
@@ -325,7 +323,6 @@
             <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
@@ -333,14 +330,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="134" column="8" lean-forward="false" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+        <state relative-caret-position="369">
+          <caret line="138" column="9" lean-forward="true" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>

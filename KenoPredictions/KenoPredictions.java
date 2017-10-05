@@ -132,7 +132,13 @@ public class KenoPredictions {
 
         System.out.println("result at : " + Arrays.toString(temp));
 
-        
+        if(combosHm.containsKey(temp)){
+            combosHm.put(temp,combosHm.get(temp) + 1);
+        }else{
+            combosHm.put(temp, 1);
+        }
+
+
 
 
     }
@@ -169,6 +175,7 @@ public class KenoPredictions {
 
        lhm = new LinkedHashMap<String, Integer>();
        bonus = new LinkedHashMap<String, Integer>();
+       combosHm = new LinkedHashMap<String[], Integer>();
 
 
         try{
