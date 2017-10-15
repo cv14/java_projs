@@ -24,14 +24,18 @@
       <file leaf-file-name="KenoPredictions.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="138" column="9" lean-forward="true" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
+            <state relative-caret-position="530">
+              <caret line="219" column="13" lean-forward="true" selection-start-line="219" selection-start-column="13" selection-end-line="219" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="e#708#764#0" expanded="false" />
                 <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
                 <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-                <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -42,6 +46,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>s</find>
+      <find>System.</find>
+      <find>System.out.</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -239,12 +245,12 @@
       <updated>1506187449392</updated>
       <workItem from="1506187452051" duration="1131000" />
       <workItem from="1506210339864" duration="9060000" />
-      <workItem from="1506599472061" duration="21993000" />
+      <workItem from="1506599472061" duration="33420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32184000" />
+    <option name="totallyTimeSpent" value="43611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1392" height="877" extended-state="0" />
@@ -295,7 +301,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -306,10 +312,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="e#708#764#0" expanded="false" />
             <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -320,24 +330,32 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="e#708#764#0" expanded="false" />
             <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="138" column="9" lean-forward="true" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
+        <state relative-caret-position="530">
+          <caret line="219" column="13" lean-forward="true" selection-start-line="219" selection-start-column="13" selection-end-line="219" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#nGrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="e#708#764#0" expanded="false" />
             <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
             <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
-            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
       </provider>

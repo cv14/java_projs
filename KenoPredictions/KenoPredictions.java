@@ -5,6 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.LinkedList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -17,41 +20,41 @@ public class KenoPredictions {
 
     private static LinkedHashMap<String, Integer> lhm;
     private static LinkedHashMap<String, Integer> bonus;
-    private static LinkedHashMap<String[], Integer> combosHm;
+    private static LinkedHashMap<String, Integer> combosHm;
 
-    public static String[] nGrams(String s, int len) {
-        //System.out.println(s);
-        if (s.endsWith(" No Bonus")) {
-            s = s.substring(0, s.length() - 9);
-        }else if (s.endsWith(" 3x")) {
-            s = s.substring(0, s.length() - 3);
-        }else if (s.endsWith(" 4x")) {
-            s = s.substring(0, s.length() - 3);
-        } else if (s.endsWith(" 5x")) {
-            s = s.substring(0, s.length() - 3);
-        }else if (s.endsWith(" 10x")) {
-            s = s.substring(0, s.length() - 4);
-        }
+//    public static String[] nGrams(String s, int len) {
+//        //System.out.println(s);
+//        if (s.endsWith(" No Bonus")) {
+//            s = s.substring(0, s.length() - 9);
+//        }else if (s.endsWith(" 3x")) {
+//            s = s.substring(0, s.length() - 3);
+//        }else if (s.endsWith(" 4x")) {
+//            s = s.substring(0, s.length() - 3);
+//        } else if (s.endsWith(" 5x")) {
+//            s = s.substring(0, s.length() - 3);
+//        }else if (s.endsWith(" 10x")) {
+//            s = s.substring(0, s.length() - 4);
+//        }
+//
+//        //System.out.println(s);
+//
+//        String[] parts = s.split("\u00AD");
+//        String[] result = new String[parts.length - len + 1];
+//
+//        for(int i = 0; i < parts.length - len + 1; i++) {
+//            StringBuilder sb = new StringBuilder();
+//            for(int k = 0; k < len; k++) {
+//                if(k > 0) sb.append(' ');
+//                sb.append(parts[i+k]);
+//            }
+//            result[i] = sb.toString();
+//        }
+//        //System.out.println("length " + result.length);
+//        return result;
+//
+//    }
 
-        //System.out.println(s);
-
-        String[] parts = s.split("\u00AD");
-        String[] result = new String[parts.length - len + 1];
-
-        for(int i = 0; i < parts.length - len + 1; i++) {
-            StringBuilder sb = new StringBuilder();
-            for(int k = 0; k < len; k++) {
-                if(k > 0) sb.append(' ');
-                sb.append(parts[i+k]);
-            }
-            result[i] = sb.toString();
-        }
-        //System.out.println("length " + result.length);
-        return result;
-
-    }
-
-    public static String[] cleanBack(String s){
+    private static String[] cleanBack(String s){
 
         if (s.endsWith(" No Bonus")) {
             s = s.substring(0, s.length() - 9);
@@ -67,13 +70,11 @@ public class KenoPredictions {
 
         String[] numbs = s.split("\u00AD");
 
-        System.out.println(s);
-
         return numbs;
 
     }
 
-    public static int countLines(String str) {
+    private static int countLines(String str) {
         if(str == null || str.isEmpty())
         {
             return 0;
@@ -86,14 +87,11 @@ public class KenoPredictions {
         return lines;
     }
 
-    public static void calculate(String keno){
-        //System.out.println(keno);
-
+    private static void calculate(String keno){
 
         String[] sKeno = keno.split("\u00AD",0);
 
         for(int i = 0; i < 20; i++){
-            //System.out.print(sKeno[i]+ " ");
             if(i == 19){
                 String[] t = sKeno[i].split(" ", 2);
                 if(lhm.containsKey(t[0])){
@@ -105,12 +103,8 @@ public class KenoPredictions {
                 if(bonus.containsKey(t[1])){
                     bonus.put(t[1],bonus.get(t[1]) + 1);
                 }else{
-                    //System.out.println(t[1]);
                     bonus.put(t[1], 1);
                 }
-
-
-
             }else if(lhm.containsKey(sKeno[i])){
                 lhm.put(sKeno[i],lhm.get(sKeno[i]) + 1);
             }else{
@@ -120,7 +114,7 @@ public class KenoPredictions {
 
     }
 
-    public static void printHM(LinkedHashMap<String, Integer> mapa){
+    private static void printHM(LinkedHashMap<String, Integer> mapa){
         for (String key : mapa.keySet()) {
             System.out.print(key + ":" + mapa.get(key));
             System.out.print("  ");
@@ -128,22 +122,28 @@ public class KenoPredictions {
         System.out.println();
     }
 
-    public static void combosChecker(String[] temp){
-
-        System.out.println("result at : " + Arrays.toString(temp));
-
-        if(combosHm.containsKey(temp)){
-            combosHm.put(temp,combosHm.get(temp) + 1);
-        }else{
-            combosHm.put(temp, 1);
+    private static void printTop10(LinkedHashMap<String, Integer> mapa){
+        int i = 1;
+        for (String key : mapa.keySet()) {
+            System.out.print(key + ":" + mapa.get(key));
+            System.out.print("  ");
+            i++;
+            if(i == 11){
+                break;
+            }
         }
-
-
-
-
+        System.out.println();
     }
 
-    public static void combinations2(String[] arr, int len, int startPosition, String[] result){
+    private static void combosChecker(String[] temp){
+        if(combosHm.containsKey(Arrays.toString(temp))){
+            combosHm.put(Arrays.toString(temp),combosHm.get(Arrays.toString(temp)) + 1);
+        }else{
+            combosHm.put(Arrays.toString(temp), 1);
+        }
+    }
+
+    private static void combinations2(String[] arr, int len, int startPosition, String[] result){
         if (len == 0){
             combosChecker(result);
             return;
@@ -154,20 +154,31 @@ public class KenoPredictions {
         }
     }
 
-    public static void calculateNgrams(String resultGrams, int n ){
+    private static void calculateNgrams(String resultGrams, int n){
         String[] resultingCombs = new String[n];
-        //System.out.println(Arrays.toString(ngrams(resultGrams, n)));
-        System.out.println(resultGrams);
         String[] r = cleanBack(resultGrams);
-        System.out.println(Arrays.toString(r));
-
         combinations2(r,n, 0, resultingCombs);
+    }
 
+    private static LinkedHashMap sortByValues(LinkedHashMap<String, Integer> mapa){
 
+        System.out.println(mapa.get("01"));
 
+        List list = new LinkedList(mapa.entrySet());
+        // Defined Custom Comparator here
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                return ((Comparable) ((Map.Entry) (o2)).getValue())
+                        .compareTo(((Map.Entry) (o1)).getValue());
+            }
+        });
 
-        //String[] result = nGrams(resultGrams, n);
-        //System.out.println(Arrays.toString(result));
+        LinkedHashMap sortedHashMap = new LinkedHashMap();
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            Map.Entry entry = (Map.Entry) it.next();
+            sortedHashMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedHashMap;
 
     }
 
@@ -175,7 +186,7 @@ public class KenoPredictions {
 
        lhm = new LinkedHashMap<String, Integer>();
        bonus = new LinkedHashMap<String, Integer>();
-       combosHm = new LinkedHashMap<String[], Integer>();
+       combosHm = new LinkedHashMap<String, Integer>();
 
 
         try{
@@ -203,8 +214,7 @@ public class KenoPredictions {
                     }
                     lines[i] = lines[i].trim();
                     calculate(lines[i]);
-                    //System.out.println(Arrays.toString(lines[i]));
-                    calculateNgrams(lines[i], 3);
+                    calculateNgrams(lines[i], 4);
 
                 }
             }
@@ -212,8 +222,30 @@ public class KenoPredictions {
            e.printStackTrace();
         }
 
+        System.out.println(lhm.size());
+        System.out.println(combosHm.size());
         printHM(lhm);
         printHM(bonus);
+        System.out.println();
+        System.out.println();
+        //printHM1(combosHm);
+
+        System.out.println(lhm.get("44"));
+        //System.out.println(combosHm.get("03 06 21 65"));
+        System.out.println(combosHm.get("[01, 08, 09, 11]"));
+        sortByValues(lhm);
+        printHM(sortByValues(lhm));
+        printHM(sortByValues(bonus));
+        //printHM(sortByValues(combosHm));
+        printTop10(sortByValues(combosHm));
+
+
+
+        //Make A METHOD to see how many times certain combination showed up in the past. 
+        //Sort by values
+        //Display top 5
+        //Download more data
+        //Write a good analysis
 
     }
 
