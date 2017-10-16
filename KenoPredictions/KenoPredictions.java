@@ -1,5 +1,10 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
+import java.util.logging.*;
+import java.io.*;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -8,7 +13,6 @@ import java.util.Map;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Comparator;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
@@ -21,6 +25,7 @@ public class KenoPredictions {
     private static LinkedHashMap<String, Integer> lhm;
     private static LinkedHashMap<String, Integer> bonus;
     private static LinkedHashMap<String, Integer> combosHm;
+    private static PDDocument document;
 
 //    public static String[] nGrams(String s, int len) {
 //        //System.out.println(s);
@@ -122,13 +127,12 @@ public class KenoPredictions {
         System.out.println();
     }
 
-    private static void printTop10(LinkedHashMap<String, Integer> mapa){
+    private static void printTopN(LinkedHashMap<String, Integer> mapa, int n){
         int i = 1;
         for (String key : mapa.keySet()) {
-            System.out.print(key + ":" + mapa.get(key));
-            System.out.print("  ");
+            System.out.println(i + ". " + key + ":" + mapa.get(key));
             i++;
-            if(i == 11){
+            if(i == n+1){
                 break;
             }
         }
@@ -162,8 +166,6 @@ public class KenoPredictions {
 
     private static LinkedHashMap sortByValues(LinkedHashMap<String, Integer> mapa){
 
-        System.out.println(mapa.get("01"));
-
         List list = new LinkedList(mapa.entrySet());
         // Defined Custom Comparator here
         Collections.sort(list, new Comparator() {
@@ -182,15 +184,17 @@ public class KenoPredictions {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
        lhm = new LinkedHashMap<String, Integer>();
        bonus = new LinkedHashMap<String, Integer>();
        combosHm = new LinkedHashMap<String, Integer>();
 
+        StringBuilder filename = new StringBuilder("tutorials ");
+        
 
         try{
-            PDDocument document = PDDocument.load(new File("test2.pdf"));
+             document = PDDocument.load(new File("test0.pdf"));
 
             Splitter splitter = new Splitter();
 
@@ -222,22 +226,25 @@ public class KenoPredictions {
            e.printStackTrace();
         }
 
-        System.out.println(lhm.size());
-        System.out.println(combosHm.size());
-        printHM(lhm);
-        printHM(bonus);
-        System.out.println();
-        System.out.println();
-        //printHM1(combosHm);
+        finally
+        {
+            if( document != null )
+            {
+                document.close();
+            }
+        }
 
-        System.out.println(lhm.get("44"));
-        //System.out.println(combosHm.get("03 06 21 65"));
-        System.out.println(combosHm.get("[01, 08, 09, 11]"));
-        sortByValues(lhm);
-        printHM(sortByValues(lhm));
-        printHM(sortByValues(bonus));
+        //System.out.println(lhm.size());
+        //System.out.println(combosHm.size());
+        //printHM(lhm);
+        //printHM(bonus);
+
+        //System.out.println(lhm.get("44"));
+        //System.out.println(combosHm.get("[01, 08, 09, 11]"));
+        //printHM(sortByValues(lhm));
+        //printHM(sortByValues(bonus));
         //printHM(sortByValues(combosHm));
-        printTop10(sortByValues(combosHm));
+        printTopN(sortByValues(combosHm),10);
 
 
 
