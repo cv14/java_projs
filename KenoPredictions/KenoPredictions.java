@@ -186,74 +186,75 @@ public class KenoPredictions {
 
     public static void main(String[] args) throws IOException {
 
-       lhm = new LinkedHashMap<String, Integer>();
-       bonus = new LinkedHashMap<String, Integer>();
-       combosHm = new LinkedHashMap<String, Integer>();
+        lhm = new LinkedHashMap<String, Integer>();
+        bonus = new LinkedHashMap<String, Integer>();
+        combosHm = new LinkedHashMap<String, Integer>();
 
-        StringBuilder filename = new StringBuilder("tutorials ");
-        
+        StringBuilder f = new StringBuilder();
+        int c = 0;
+        //  f.append((char)(c + '0') + ".pdf" );
 
-        try{
-             document = PDDocument.load(new File("test0.pdf"));
+        while (c != 5) {
+            f = new StringBuilder("test");
+            f.append((char) (c + '0') + ".pdf");
+            c++;
 
-            Splitter splitter = new Splitter();
+            try {
+                document = PDDocument.load(new File(f.toString()));
 
-            //splitting the pages of a PDF document
-            List<PDDocument> Pages = splitter.split(document);
+                Splitter splitter = new Splitter();
 
-            //Creating an iterator
-            Iterator<PDDocument> iterator = Pages.listIterator();
+                //splitting the pages of a PDF document
+                List<PDDocument> Pages = splitter.split(document);
 
-            //Saving each page as an individual document
-            while(iterator.hasNext()) {
-                PDDocument pd = iterator.next();
-                PDFTextStripper pdfStripper = new PDFTextStripper();
-                String text = pdfStripper.getText(pd);
-                String[] lines = text.split("\r\n|\r|\n");
-                for (int i = 4; i < countLines(text) - 2; i++) {
-                    for(int j = 0; j < 19;j++){
-                        char[] myNameChars = lines[i].toCharArray();
-                        myNameChars[j] = ' ';
-                        lines[i] = String.valueOf(myNameChars);
+                //Creating an iterator
+                Iterator<PDDocument> iterator = Pages.listIterator();
+
+                //Saving each page as an individual document
+                while (iterator.hasNext()) {
+                    PDDocument pd = iterator.next();
+                    PDFTextStripper pdfStripper = new PDFTextStripper();
+                    String text = pdfStripper.getText(pd);
+                    String[] lines = text.split("\r\n|\r|\n");
+                    for (int i = 4; i < countLines(text) - 2; i++) {
+                        for (int j = 0; j < 19; j++) {
+                            char[] myNameChars = lines[i].toCharArray();
+                            myNameChars[j] = ' ';
+                            lines[i] = String.valueOf(myNameChars);
+                        }
+                        lines[i] = lines[i].trim();
+                        calculate(lines[i]);
+                        calculateNgrams(lines[i], 4);
+
                     }
-                    lines[i] = lines[i].trim();
-                    calculate(lines[i]);
-                    calculateNgrams(lines[i], 4);
-
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (document != null) {
+                    document.close();
                 }
             }
-        }catch (Exception e) {
-           e.printStackTrace();
         }
 
-        finally
-        {
-            if( document != null )
-            {
-                document.close();
-            }
-        }
+            //System.out.println(lhm.size());
+            //System.out.println(combosHm.size());
+            //printHM(lhm);
+            //printHM(bonus);
 
-        //System.out.println(lhm.size());
-        //System.out.println(combosHm.size());
-        //printHM(lhm);
-        //printHM(bonus);
-
-        //System.out.println(lhm.get("44"));
-        //System.out.println(combosHm.get("[01, 08, 09, 11]"));
-        //printHM(sortByValues(lhm));
-        //printHM(sortByValues(bonus));
-        //printHM(sortByValues(combosHm));
-        printTopN(sortByValues(combosHm),10);
+            //System.out.println(lhm.get("44"));
+            //System.out.println(combosHm.get("[01, 08, 09, 11]"));
+            //printHM(sortByValues(lhm));
+            //printHM(sortByValues(bonus));
+            //printHM(sortByValues(combosHm));
+            printTopN(sortByValues(combosHm), 10);
 
 
-
-        //Make A METHOD to see how many times certain combination showed up in the past. 
-        //Sort by values
-        //Display top 5
-        //Download more data
-        //Write a good analysis
-
+            //Make A METHOD to see how many times certain combination showed up in the past. 
+            //Sort by values
+            //Display top 5
+            //Download more data
+            //Write a good analysis
     }
 
 }
