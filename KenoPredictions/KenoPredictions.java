@@ -194,7 +194,7 @@ public class KenoPredictions {
         int c = 0;
         //  f.append((char)(c + '0') + ".pdf" );
 
-        while (c != 5) {
+        while (c != 1) {
             f = new StringBuilder("test");
             f.append((char) (c + '0') + ".pdf");
             c++;
@@ -224,7 +224,7 @@ public class KenoPredictions {
                         }
                         lines[i] = lines[i].trim();
                         calculate(lines[i]);
-                        calculateNgrams(lines[i], 4);
+                        calculateNgrams(lines[i], 12);
 
                     }
                 }
@@ -244,16 +244,19 @@ public class KenoPredictions {
 
             //System.out.println(lhm.get("44"));
             //System.out.println(combosHm.get("[01, 08, 09, 11]"));
-            //printHM(sortByValues(lhm));
+            printHM(sortByValues(lhm));
             //printHM(sortByValues(bonus));
             //printHM(sortByValues(combosHm));
-            printTopN(sortByValues(combosHm), 10);
+            System.out.println(combosHm.size());
+            printTopN(sortByValues(combosHm), 5);
 
 
             //Make A METHOD to see how many times certain combination showed up in the past. 
             //Sort by values
             //Display top 5
             //Download more data
+            //predict using AI analysis like  based on last 5 games what will be the possible numbers in next game
+            //if 2 is followed by 22 then what is expected to follow it again.
             //Write a good analysis
     }
 
