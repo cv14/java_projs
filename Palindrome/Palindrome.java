@@ -34,21 +34,70 @@ import java.util.*;
 
 public class Palindrome {
 
-  public static ListNode<Integer> boolean isListPalindrome(ListNode<Integer> l){
+  public static boolean isListPalindrome(ListNode<Integer> l){
 
     //get the length;
     //break the list in half
     //if odd number of element take the mid point and compare left and right
     //if even number check the first half and last half
+    //0110
+    //01110
 
-    System.out.println(size(l));
+    //     Cre­ate 3 nodes, cur­rN­ode, Pre­vN­ode and nextNode.
+    // Ini­tial­ize them as cur­rN­ode = head; nextN­ode = null;pre­vN­ode = null;
+    // Now keep revers­ing the point­ers one by one till currNode!=null.
+
+    int size = size(l);
+    int tillMid = 0;
+    ListNode<Integer> headNode = l;
+    ListNode<Integer> cur­rN­ode = l;
+    ListNode<Integer> pre­vN­ode = null;
+    ListNode<Integer> nextNode = null;
+
+    for(ListNode<Integer> n = l; n != null; n = n.next){
+      System.out.println(n.value);
+    }
+
+    for(ListNode<Integer> n = l; n != null && tillMid != size/2 + 1; n = n.next){
+      //System.out.println(n.value);
+      headNode = n;
+      tillMid++;
+    }
+
+
+
+    cur­rN­ode = headNode.next;
+
+    while(currNode!=null){
+        nextNode = currNode.next;
+        currNode.next = prevNode;
+        prevNode = currNode;
+        currNode = nextNode;
+    }
+
+    headNode.next = prevNode;
+
+    for(ListNode<Integer> n = l; n != null; n = n.next){
+      System.out.println(n.value);
+    }
+
+
+
+
+
+
+    if(size % 2 == 0){
+      //if even number check the first half and last half
+    }else{
+      //if odd number of element take the mid point and compare left and right
+    }
 
     return true;
   }
 
-  public int size(ListNode<Integer> l) {
+  public static int size(ListNode<Integer> l) {
 
-      int size = 0;
+      int size = 1;
       for(ListNode<Integer> n = l; n.next != null; n = n.next){
         size++;
       }
@@ -58,18 +107,18 @@ public class Palindrome {
 
   public static void main(String[] args) {
 
-      ListNode<Integer> ll3 = new ListNode(0);
-      ListNode<Integer> ll1 = new ListNode(1);
-      ListNode<Integer> ll2 = new ListNode(0);
-      ListNode<Integer> ll31 = new ListNode(1);
-      ListNode<Integer> ll4 = new ListNode(0);
+      ListNode<Integer> ll3 = new ListNode(1);
+      ListNode<Integer> ll1 = new ListNode(2);
+      ListNode<Integer> ll2 = new ListNode(3);
+      ListNode<Integer> ll31 = new ListNode(4);
+      ListNode<Integer> ll4 = new ListNode(5);
 
       ll3.next = ll1;
       ll1.next = ll2;
       ll2.next = ll31;
       ll31.next = ll4;
 
-      System.out.println(isListPalindrome(ll3, 3));
+      System.out.println(isListPalindrome(ll3));
 
   }
 

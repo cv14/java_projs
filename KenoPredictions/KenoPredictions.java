@@ -224,7 +224,7 @@ public class KenoPredictions {
                         }
                         lines[i] = lines[i].trim();
                         calculate(lines[i]);
-                        calculateNgrams(lines[i], 12);
+                        calculateNgrams(lines[i], 4);
 
                     }
                 }

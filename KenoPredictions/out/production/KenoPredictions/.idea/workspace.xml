@@ -24,17 +24,33 @@
       <file leaf-file-name="KenoPredictions.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="-625">
+              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1506559164000" expanded="true" signature="2000:2734" ph="..." />
+                <element signature="e#849#905#0" expanded="false" />
+                <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#printTopN#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+                <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>s</find>
+      <find>System.</find>
+      <find>System.out.</find>
+    </findStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -75,8 +91,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,8 +109,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -118,11 +134,12 @@
   </component>
   <component name="RunManager" selected="Application.KenoPredictions">
     <configuration name="KenoPredictions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <output_file path="$USER_HOME$/Desktop/a.txt" is_save="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="KenoPredictions" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -230,12 +247,13 @@
       <updated>1506187449392</updated>
       <workItem from="1506187452051" duration="1131000" />
       <workItem from="1506210339864" duration="9060000" />
-      <workItem from="1506599472061" duration="286000" />
+      <workItem from="1506599472061" duration="43332000" />
+      <workItem from="1509140707442" duration="253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10477000" />
+    <option name="totallyTimeSpent" value="53776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1392" height="877" extended-state="0" />
@@ -246,10 +264,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.50287354" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.49712643" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -259,8 +277,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -286,7 +304,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -297,7 +315,16 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506559164000" expanded="true" signature="2000:2734" ph="..." />
+            <element signature="e#849#905#0" expanded="false" />
+            <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printTopN#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -308,18 +335,63 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506559164000" expanded="true" signature="2000:2734" ph="..." />
+            <element signature="e#849#905#0" expanded="false" />
+            <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printTopN#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506559164000" expanded="true" signature="2000:2734" ph="..." />
+            <element signature="e#849#905#0" expanded="false" />
+            <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printTopN#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KenoPredictions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-625">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#849#905#0" expanded="false" />
+            <element signature="method#cleanBack#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#countLines#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculate#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printHM#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#printTopN#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combosChecker#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#combinations2#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#calculateNgrams#0;class#KenoPredictions#0" expanded="false" />
+            <element signature="method#sortByValues#0;class#KenoPredictions#0" expanded="false" />
           </folding>
         </state>
       </provider>
