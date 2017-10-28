@@ -54,42 +54,53 @@ public class Palindrome {
     ListNode<Integer> pre­vN­ode = null;
     ListNode<Integer> nextNode = null;
 
-    for(ListNode<Integer> n = l; n != null; n = n.next){
-      System.out.println(n.value);
-    }
-
-    for(ListNode<Integer> n = l; n != null && tillMid != size/2 + 1; n = n.next){
-      //System.out.println(n.value);
-      headNode = n;
-      tillMid++;
-    }
-
-
-
-    cur­rN­ode = headNode.next;
-
-    while(currNode!=null){
-        nextNode = currNode.next;
-        currNode.next = prevNode;
-        prevNode = currNode;
-        currNode = nextNode;
-    }
-
-    headNode.next = prevNode;
-
-    for(ListNode<Integer> n = l; n != null; n = n.next){
-      System.out.println(n.value);
-    }
-
-
-
-
-
-
     if(size % 2 == 0){
       //if even number check the first half and last half
+      for(ListNode<Integer> n = l; n != null && tillMid != size/2; n = n.next){
+        System.out.println(n.value);
+        headNode = n;
+        tillMid++;
+      }
+
+      cur­rN­ode = headNode.next;
+
+      while(currNode!=null){
+          nextNode = currNode.next;
+          currNode.next = prevNode;
+          prevNode = currNode;
+          currNode = nextNode;
+      }
+
+      headNode.next = prevNode;
+
+      System.out.println();
+
+      for(ListNode<Integer> n = l; n != null; n = n.next){
+        System.out.println(n.value);
+      }
     }else{
-      //if odd number of element take the mid point and compare left and right
+      for(ListNode<Integer> n = l; n != null && tillMid != size/2 + 1; n = n.next){
+        System.out.println(n.value);
+        headNode = n;
+        tillMid++;
+      }
+
+      cur­rN­ode = headNode.next;
+
+      while(currNode!=null){
+          nextNode = currNode.next;
+          currNode.next = prevNode;
+          prevNode = currNode;
+          currNode = nextNode;
+      }
+
+      headNode.next = prevNode;
+
+      System.out.println();
+
+      for(ListNode<Integer> n = l; n != null; n = n.next){
+        System.out.println(n.value);
+      }
     }
 
     return true;
@@ -116,7 +127,7 @@ public class Palindrome {
       ll3.next = ll1;
       ll1.next = ll2;
       ll2.next = ll31;
-      ll31.next = ll4;
+      //ll31.next = ll4;
 
       System.out.println(isListPalindrome(ll3));
 
