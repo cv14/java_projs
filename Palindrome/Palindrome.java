@@ -80,38 +80,16 @@ public class Palindrome {
         prevNode = currNode;
         currNode = nextNode;
     }
-
     headNode.next = prevNode;
-
-    System.out.println();
-
-    for(ListNode<Integer> n = l; n != null; n = n.next){
-      System.out.println(n.value);
-    }
 
     firstHalf = l;
     secondHalf = prevNode;
 
-    System.out.println();
-
-    for (int i = 0; i < size/2; i++) {
-      System.out.println(firstHalf.value);
-      System.out.println(secondHalf.value);
-      firstHalf = firstHalf.next;
-      secondHalf = secondHalf.next;
+    for (int i = 0; i < size/2; i++,firstHalf = firstHalf.next, secondHalf = secondHalf.next){
+      if(firstHalf.value != secondHalf.value){
+        return false;
+      }
     }
-
-    if(size % 2 == 0){
-      //for (int i = 0 && ; i < size; i++) {
-
-      //}
-    }else{
-
-    }
-
-
-
-
     return true;
   }
 
@@ -129,14 +107,14 @@ public class Palindrome {
 
       ListNode<Integer> ll3 = new ListNode(1);
       ListNode<Integer> ll1 = new ListNode(2);
-      ListNode<Integer> ll2 = new ListNode(3);
-      ListNode<Integer> ll31 = new ListNode(4);
-      ListNode<Integer> ll4 = new ListNode(5);
+      ListNode<Integer> ll2 = new ListNode(2);
+      ListNode<Integer> ll31 = new ListNode(3);
+      ListNode<Integer> ll4 = new ListNode(0);
 
       ll3.next = ll1;
       ll1.next = ll2;
       ll2.next = ll31;
-      ll31.next = ll4;
+      //ll31.next = ll4;
 
       System.out.println(isListPalindrome(ll3));
 
