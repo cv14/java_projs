@@ -9,9 +9,25 @@ public static String[][] groupingDishes(String[][] dishes) {
 
   for (int i = 0; i < dishes.length; i++) {
     for (Integer j = 1; j < dishes[i].length; j++) {
-      dishesHM.put(dishes[i][j], al )
+      if(dishesHM.containsKey(dishes[i][j])){
+        System.out.println("lado");
+        al = dishesHM.get(dishes[i][j]);
+        al.add(dishes[i][0]);
+        System.out.println(al);
+        dishesHM.put(dishes[i][j], al);
+        System.out.println(dishesHM);
+      }else{
+        al.add(dishes[i][0]);
+        System.out.println(al);
+        dishesHM.put(dishes[i][j], al);
+        System.out.println(dishesHM);
+      }
     }
   }
+
+  //System.out.println(dishesHM);
+  System.out.println();
+  System.out.println();
 
   return dishes;
 }
