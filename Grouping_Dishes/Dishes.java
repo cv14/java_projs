@@ -46,9 +46,6 @@ public class Dishes {
    static ArrayList<ArrayList<String>> groupedDishes=new ArrayList<ArrayList<String>>();
 
 public static String[][] groupingDishes(String[][] dishes) {
-
-
-
   for (int i = 0; i < dishes.length; i++) {
     al = new TreeSet<String>();
     for (Integer j = 1; j < dishes[i].length; j++) {
