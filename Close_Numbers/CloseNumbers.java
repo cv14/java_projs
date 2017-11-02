@@ -24,15 +24,31 @@ than k.
 
 import java.util.*;
 
- public class ClosedNumbers {
+ public class CloseNumbers {
 
    public static boolean containsCloseNums(int[] nums, int k) {
+     HashMap<Integer, Integer> mapa = new HashMap<Integer, Integer>();
 
+     for(int i = 0; i < nums.length; i++){
+       if(mapa.containsKey(nums[i])){
+         System.out.println(i - mapa.get(nums[i]));
+         if(i - mapa.get(nums[i])> k){
+           return false;
+         }
+       }else{
+         mapa.put(nums[i], i);
+       }
+       System.out.println(mapa);
+     }
+
+     return true;
    }
 
 
    public static void main(String[] args) {
-
+     int[] nums = {0, 1, 2, 3, 5, 2};
+     int k = 2;
+     System.out.println(containsCloseNums(nums,k));
    }
 
  }
