@@ -28,26 +28,37 @@ import java.util.*;
 
    public static boolean containsCloseNums(int[] nums, int k) {
      HashMap<Integer, Integer> mapa = new HashMap<Integer, Integer>();
+     boolean cambiar = true;
+
+     if(nums.length == 0 || nums.length == 1){
+       cambiar = false;
+     }
 
      for(int i = 0; i < nums.length; i++){
        if(mapa.containsKey(nums[i])){
-         System.out.println(i - mapa.get(nums[i]));
          if(i - mapa.get(nums[i])> k){
-           return false;
+           cambiar = false;
+           mapa.put(nums[i], i);
+         }else{
+           cambiar = true;
+           return cambiar;
          }
        }else{
          mapa.put(nums[i], i);
        }
-       System.out.println(mapa);
      }
 
-     return true;
+     if(mapa.size() == nums.length){
+       cambiar = false;
+     }
+
+     return cambiar;
    }
 
 
    public static void main(String[] args) {
-     int[] nums = {0, 1, 2, 3, 5, 2};
-     int k = 2;
+     int[] nums = {1, 0 ,1 ,1 };
+     int k = 1;
      System.out.println(containsCloseNums(nums,k));
    }
 
