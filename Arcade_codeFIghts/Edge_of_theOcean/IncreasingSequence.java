@@ -33,33 +33,34 @@ get a strictly increasing sequence, otherwise return false.
 
 
 */
+//optimize the code
 
-//using for loop check if the value from first to end is greater than next to it.
-//if it is then take it out and see if the sequence is increasing
-//if it is return true else false.
-
-//Or using a stack
+import java.util.*;
 
 public class IncreasingSequence {
 
   public static boolean almostIncreasingSequence(int[] sequence) {
-      
+      ArrayList<Integer> seqNumbs = new ArrayList<Integer>();
 
-    // for (int i = 0; i < sequence.length-2; i++) {
-    //   if(sequence.)
-    //   if(sequence[i] >= sequence[i+1]){
-    //     if(sequence[i] >= sequence[i+2]){
-    //       return false;
-    //     }
-    //   }
-    //
-    // }
+      for (int i = 0; i < sequence.length; i++){
+        seqNumbs.add(sequence[i]);
+      }
 
+      for (int i = 0; i < seqNumbs.size()-2; i++) {
+        if(seqNumbs.get(i) > seqNumbs.get(i+1)){
+          seqNumbs.remove(i);
+          for (int j = 0; j < seqNumbs.size()-2; j++){
+            if(seqNumbs.get(j) > seqNumbs.get(j+1)){
+              return false;
+            }
+          }
+        }
+      }
     return true;
   }
 
   public static void main(String[] args) {
-    int[] seq = {10, 1, 2, 3, 4, 5};
+    int[] seq = {1, 3, 2, 1};
     System.out.println(almostIncreasingSequence(seq));
 
     //seq = { 1, 3, 2};
