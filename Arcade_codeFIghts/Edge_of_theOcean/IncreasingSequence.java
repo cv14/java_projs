@@ -39,55 +39,49 @@ import java.util.*;
 
 public class IncreasingSequence {
 
+  public static boolean check_seq(ArrayList<Integer> seqNumbs){
+
+    for (int i = 0; i < seqNumbs.size()-1; i++) {
+      if(seqNumbs.get(i) >= seqNumbs.get(i+1)){
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   public static boolean almostIncreasingSequence(int[] sequence) {
       ArrayList<Integer> seqNumbs = new ArrayList<Integer>();
+      int temporal = 0;
+      boolean retBool = true;
 
       for (int i = 0; i < sequence.length; i++){
         seqNumbs.add(sequence[i]);
       }
 
       for (int i = 0; i < seqNumbs.size()-2; i++) {
-
-       if(seqNumbs.get(i) >= seqNumbs.get(i+1)){
-          valor_eliminado = seqNumbs.get(i);
+        if(seqNumbs.get(i) >= seqNumbs.get(i+1)){
+          temporal = seqNumbs.get(i);
           seqNumbs.remove(i);
-          eliminar_conteo++;
-          for (int j = 0; j < seqNumbs.size()-1; j++){
-            if(seqNumbs.get(j) >= seqNumbs.get(j+1)){
-              temp = false;
-              eliminar_conteo++;
-            }else{
-              temp = true;
-              eliminar_conteo--;
-            }
-          }
-          seqNumbs.add(i, valor_eliminado);
+          System.out.println(check_seq(seqNumbs));
+          retBool = check_seq(seqNumbs);
+          seqNumbs.add(i, temporal);
+
         }
-      if(seqNumbs.get(i) >= seqNumbs.get(i+1)){
-        valor_eliminado = seqNumbs.get(i+1);
-        seqNumbs.remove(i+1);
-        eliminar_conteo++;
-        for (int j = 0; j < seqNumbs.size()-1; j++){
-          if(seqNumbs.get(j) >= seqNumbs.get(j+1)){
-            temp = false;
-            eliminar_conteo++;
-            eliminar_conteo--;
-          }else{
-            temp = true;
-          }
+        if(i > 0 && retBool == false && seqNumbs.get(i-1) >= seqNumbs.get(i+1)){
+          temporal = seqNumbs.get(i+1);
+          seqNumbs.remove(i+1);
+          System.out.println(check_seq(seqNumbs));
+          retBool = check_seq(seqNumbs);
+          seqNumbs.add(i+1, temporal);
         }
-        seqNumbs.add(i, valor_eliminado);
-       }
+
       }
-      //System.out.println(temp);
-      // if(eliminar_conteo >= 2){
-      //   return false;
-      // }
-    return temp;
+    return retBool;
   }
 
   public static void main(String[] args) {
-    int[] seq = {1, 2, 3, 4, 3, 6};
+    int[] seq = {1, 1, 1, 2, 3};
     System.out.println(almostIncreasingSequence(seq));
 
     //seq = { 1, 3, 2};
