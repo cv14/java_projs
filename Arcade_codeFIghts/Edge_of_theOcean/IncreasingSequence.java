@@ -46,7 +46,6 @@ public class IncreasingSequence {
         return false;
       }
     }
-
     return true;
   }
 
@@ -63,7 +62,6 @@ public class IncreasingSequence {
         if(seqNumbs.get(i) >= seqNumbs.get(i+1)){
           temporal = seqNumbs.get(i);
           seqNumbs.remove(i);
-          System.out.println(check_seq(seqNumbs));
           retBool = check_seq(seqNumbs);
           seqNumbs.add(i, temporal);
 
@@ -71,7 +69,6 @@ public class IncreasingSequence {
         if(i > 0 && retBool == false && seqNumbs.get(i-1) >= seqNumbs.get(i+1)){
           temporal = seqNumbs.get(i+1);
           seqNumbs.remove(i+1);
-          System.out.println(check_seq(seqNumbs));
           retBool = check_seq(seqNumbs);
           seqNumbs.add(i+1, temporal);
         }
@@ -83,8 +80,6 @@ public class IncreasingSequence {
   public static void main(String[] args) {
     int[] seq = {1, 1, 1, 2, 3};
     System.out.println(almostIncreasingSequence(seq));
-
-    //seq = { 1, 3, 2};
 
   }
 }
