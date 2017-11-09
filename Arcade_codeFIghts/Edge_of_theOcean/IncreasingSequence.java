@@ -41,9 +41,6 @@ public class IncreasingSequence {
 
   public static boolean almostIncreasingSequence(int[] sequence) {
       ArrayList<Integer> seqNumbs = new ArrayList<Integer>();
-      boolean temp = true;
-      int valor_eliminado = 0;
-      int eliminar_conteo = 0;
 
       for (int i = 0; i < sequence.length; i++){
         seqNumbs.add(sequence[i]);
@@ -56,22 +53,36 @@ public class IncreasingSequence {
           seqNumbs.remove(i);
           eliminar_conteo++;
           for (int j = 0; j < seqNumbs.size()-1; j++){
-            System.out.println(seqNumbs);
             if(seqNumbs.get(j) >= seqNumbs.get(j+1)){
               temp = false;
               eliminar_conteo++;
             }else{
               temp = true;
+              eliminar_conteo--;
             }
           }
           seqNumbs.add(i, valor_eliminado);
-          System.out.println(seqNumbs);
         }
+      if(seqNumbs.get(i) >= seqNumbs.get(i+1)){
+        valor_eliminado = seqNumbs.get(i+1);
+        seqNumbs.remove(i+1);
+        eliminar_conteo++;
+        for (int j = 0; j < seqNumbs.size()-1; j++){
+          if(seqNumbs.get(j) >= seqNumbs.get(j+1)){
+            temp = false;
+            eliminar_conteo++;
+            eliminar_conteo--;
+          }else{
+            temp = true;
+          }
+        }
+        seqNumbs.add(i, valor_eliminado);
+       }
       }
-      if(eliminar_conteo >= 2){
-        return false;
-      }
-      System.out.println(eliminar_conteo);
+      //System.out.println(temp);
+      // if(eliminar_conteo >= 2){
+      //   return false;
+      // }
     return temp;
   }
 
