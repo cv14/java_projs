@@ -64,6 +64,11 @@ public class CharCount {
     return sum;
   }
 
+  /////
+///////
+/////// Add an array
+/////
+////
 
   static int commonCharacterCount(String s1, String s2) {
 
@@ -87,6 +92,17 @@ public class CharCount {
     String s1 = "aabcc";
     String s2 = "adcaa";
     System.out.println(commonCharacterCount(s1, s2));
+
+  }
+
+  public static class Valor{
+    public Valor(int x,boolean t){
+      val = x;
+      status = t;
+    }
+
+    int val;
+    boolean status;
 
   }
 
