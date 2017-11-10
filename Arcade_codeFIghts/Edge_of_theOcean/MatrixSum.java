@@ -71,12 +71,12 @@ public class MatrixSum  {
         if(matrix[j][i] == 0){
           break;
         }else{
-          System.out.println(matrix[j][i]);
+          sum = sum + matrix[j][i];
         }
       }
     }
 
-    return 0;
+    return sum;
   }
 
   public static void main(String[] args) {
