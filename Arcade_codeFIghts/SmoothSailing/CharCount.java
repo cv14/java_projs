@@ -48,7 +48,21 @@ public class CharCount {
 
   }
 
-  static 
+  static int contarSuma(String c){
+    int sum = 0;
+
+    for (int i = 0; i < c.length(); i++) {
+      if(unoMapa.containsKey(c.charAt(i)) && dosMapa.containsKey(c.charAt(i))){
+        if(unoMapa.get(c.charAt(i)) < dosMapa.get(c.charAt(i))){
+          sum = sum + unoMapa.get(c.charAt(i));
+        }else{
+          sum = sum + dosMapa.get(c.charAt(i));
+        }
+      }
+    }
+
+    return sum;
+  }
 
 
   static int commonCharacterCount(String s1, String s2) {
@@ -60,14 +74,12 @@ public class CharCount {
     addinMapa(unoMapa, s1);
     addinMapa(dosMapa, s2);
 
-    longitud = s1.length() < s2.length() ? s1.length() : s2.length();
     cuerda = s1.length() < s2.length() ? s1 : s2;
-    System.out.println(cuerda);
-    suma = contarSuma(cuerda, longitud);
+    suma = contarSuma(cuerda);
 
 
 
-    return 0;
+    return suma;
 
   }
 
