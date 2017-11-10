@@ -33,16 +33,18 @@ import java.util.*;
 
 
 public class CharCount {
-  static LinkedHashMap<Character, Integer> unoMapa = new LinkedHashMap<Character, Integer>();
-  static LinkedHashMap<Character, Integer> dosMapa = new LinkedHashMap<Character, Integer>();
+  static LinkedHashMap<Character, Valor> unoMapa = new LinkedHashMap<Character, Valor>();
+  static LinkedHashMap<Character, Valor> dosMapa = new LinkedHashMap<Character, Valor>();
 
-  static void addinMapa(LinkedHashMap<Character, Integer> mapa, String s){
+  static void addinMapa(LinkedHashMap<Character, Valor> mapa, String s){
 
     for (int i = 0; i < s.length(); i++) {
       if(mapa.containsKey(s.charAt(i))){
-        mapa.put(s.charAt(i), mapa.get(s.charAt(i)) + 1);
+        //mapa.put(s.charAt(i), mapa.get(s.charAt(i)) + 1);
+        mapa.put(s.charAt(i),new Valor(mapa.get(s.charAt(i)).val + 1, true));
+
       }else{
-        mapa.put(s.charAt(i), 1);
+        mapa.put(s.charAt(i), new Valor(1, true));
       }
     }
 
@@ -53,10 +55,10 @@ public class CharCount {
 
     for (int i = 0; i < c.length(); i++) {
       if(unoMapa.containsKey(c.charAt(i)) && dosMapa.containsKey(c.charAt(i))){
-        if(unoMapa.get(c.charAt(i)) < dosMapa.get(c.charAt(i))){
-          sum = sum + unoMapa.get(c.charAt(i));
+        if(unoMapa.get(c.charAt(i)).val < dosMapa.get(c.charAt(i)).val ){
+          sum = sum + unoMapa.get(c.charAt(i)).val;
         }else{
-          sum = sum + dosMapa.get(c.charAt(i));
+          sum = sum + dosMapa.get(c.charAt(i)).val;
         }
       }
     }
