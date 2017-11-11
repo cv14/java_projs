@@ -55,10 +55,13 @@ public class CharCount {
 
     for (int i = 0; i < c.length(); i++) {
       if(unoMapa.containsKey(c.charAt(i)) && dosMapa.containsKey(c.charAt(i))){
-        if(unoMapa.get(c.charAt(i)).val < dosMapa.get(c.charAt(i)).val ){
+        if(unoMapa.get(c.charAt(i)).val < dosMapa.get(c.charAt(i)).val
+        && unoMapa.get(c.charAt(i)).status == true  && dosMapa.get(c.charAt(i)).status == true){
           sum = sum + unoMapa.get(c.charAt(i)).val;
-        }else{
+          unoMapa.put(c.charAt(i), new Valor(0, false));
+        }else if(unoMapa.get(c.charAt(i)).status == true  && dosMapa.get(c.charAt(i)).status == true){
           sum = sum + dosMapa.get(c.charAt(i)).val;
+          dosMapa.put(c.charAt(i), new Valor(0, false));
         }
       }
     }
@@ -91,8 +94,8 @@ public class CharCount {
   }
 
   public static void main(String[] args){
-    String s1 = "aabcc";
-    String s2 = "adcaa";
+    String s1 = "abca";
+    String s2 = "xyzbac";
     System.out.println(commonCharacterCount(s1, s2));
 
   }
