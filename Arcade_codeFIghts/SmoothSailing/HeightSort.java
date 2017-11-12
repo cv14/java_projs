@@ -26,17 +26,26 @@ Sorted array a with all the trees untouched.
 
 */
 import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class HeightSort {
-  static ArrayList<Integer> al = new ArrayList<Integer>();
+  static LinkedList<Integer> al = new LinkedList<Integer>();
 
-  static void addToAL(ArrayList<Integer> al,int[] a ){
+  static void addToAL(LinkedList<Integer> al,int[] a ){
 
     for (int i = 0; i < a.length; i++) {
-      al.add(a[i]);
+      if(a[i] != -1){ al.add(a[i]); }
     }
 
+  }
+
+  static void addTrees(LinkedList<Integer> al,boolean[] temporal ){
+
+    for (int i = 0; i < temporal.length; i++) {
+      if(!temporal[i]) {
+        al.add(i, -1);
+      }
+    }
   }
 
   static int[] sortByHeight(int[] a) {
@@ -47,11 +56,15 @@ public class HeightSort {
       temporal[i] = a[i] == -1 ? false : true;
     }
 
-    System.out.println(Arrays.toString(temporal));
-
     Arrays.sort(a);
     addToAL(al, a);
 
+    addTrees(al, temporal);
+
+    for(int num = 0; num < al.size(); num++)
+      {
+    	  a[num] = al.get(num);
+      }
 
 
 
