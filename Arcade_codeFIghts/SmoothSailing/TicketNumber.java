@@ -24,7 +24,7 @@ public class TicketNumber {
 
     String temporal = Integer.toString(n);
     String primera_mitad = temporal.substring(0, (temporal.length()/2));
-    
+
     for(int i = 0,j = temporal.length()/2;i < temporal.length()/2 && j < temporal.length();i++,j++){
        suma1 = suma1 + (temporal.charAt(i) - '0');
        suma2 = suma2 + (temporal.charAt(j) - '0');
