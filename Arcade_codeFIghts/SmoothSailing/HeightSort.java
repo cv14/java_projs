@@ -66,15 +66,11 @@ public class HeightSort {
     	  a[num] = al.get(num);
       }
 
-
-
-
-
     return a;
   }
 
   public static void main(String[] args) {
-    int[] a = {-1, 150, 190, 170, -1, -1, 160, 180};
+    int[] a = {-1, -1, -1, -1, -1};
     System.out.println(Arrays.toString(sortByHeight(a)));
   }
 
