@@ -43,8 +43,6 @@ import java.util.*;
 
 public class Parenthesis {
 
-
-
   static String reverseParentheses(String s) {
     Stack<Character> stack = new Stack<Character>();
     Queue<Character> tempQ = new LinkedList<Character>();
@@ -54,39 +52,44 @@ public class Parenthesis {
     int level = 0;
 
     for (int i = 0; i < s.length(); i++) {
-      //System.out.println(stack);
-      if(s.charAt(i) == '(' ){
-        stackSwitch = true;
-        level++;
-      }
-      if(stackSwitch == true && s.charAt(i) != ')'){
-          stack.push(s.charAt(i));
-      }
-      //System.out.println(str.toString());
-      if(s.charAt(i) == ')' && level == 1) {
-        temp = stack.pop();
-        while (temp != '(') {
-          str.append(temp);
-          System.out.println(temp);
-          temp = stack.pop();
-        }
-       stackSwitch = false;
-       level--;
-     }else if(s.charAt(i) == ')' && level > 1) {
-       tempQ = new LinkedList<Character>();
-       temp = stack.pop();
-       while (temp != '(') {
-         tempQ.add(temp);
-         temp = stack.pop();
-       }
-       level--;
-       stack.addAll(tempQ);
-      stackSwitch = false;
-     }
 
-      if(stackSwitch == false && s.charAt(i) != ')'){
-        str.append(s.charAt(i));
-      }
+          //System.out.println(stack);
+          if(s.charAt(i) == '(' ){
+            stackSwitch = true;
+            level++;
+          }
+          if(stackSwitch == true && s.charAt(i) != ')'){
+              stack.push(s.charAt(i));
+          }
+          //System.out.println(str.toString());
+          if(s.charAt(i) == ')' && level == 1) {
+            temp = stack.pop();
+            while (temp != '(') {
+              str.append(temp);
+              System.out.println(temp);
+              temp = stack.pop();
+            }
+           stackSwitch = false;
+           level--;
+         }else if(s.charAt(i) == ')' && level > 1) {
+           tempQ = new LinkedList<Character>();
+           temp = stack.pop();
+           while (temp != '(') {
+             tempQ.add(temp);
+             temp = stack.pop();
+           }
+           level--;
+           System.out.println(tempQ);
+           stack.addAll(tempQ);
+           System.out.println(stack);
+          //stackSwitch = false;
+         }
+
+          if(stackSwitch == false && s.charAt(i) != ')'){
+            str.append(s.charAt(i));
+          }
+
+          System.out.println(str.toString());
      }
 
      s = str.toString();
@@ -97,10 +100,10 @@ public class Parenthesis {
   public static void main(String[] args) {
     String s = "a(bc)de";
 
-    System.out.println(reverseParentheses(s));
+    //System.out.println(reverseParentheses(s));
 
      s = "a(bcdefghijkl(mno)p)q";
-     System.out.println(reverseParentheses(s));
+     //System.out.println(reverseParentheses(s));
 
      s = "Code(Cha(lle)nge)";
      System.out.println(reverseParentheses(s));
