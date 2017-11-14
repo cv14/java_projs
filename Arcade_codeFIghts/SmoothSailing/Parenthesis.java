@@ -44,23 +44,33 @@ public class Parenthesis {
   static String reverseParentheses(String s) {
     boolean stackSwitch = false;
     StringBuilder str = new StringBuilder();
+    char temp ;
 
     for (int i = 0; i < s.length(); i++) {
-      if(stackSwitch == false){
-        str.append(s.charAt(i));
-      }
+      //System.out.println(stack);
       if(s.charAt(i) == '(' ){
         stackSwitch = true;
       }
-
-      if(stackSwitch == true && s.charAt(i) != '('){
+      if(stackSwitch == true && s.charAt(i) != ')'){
           stack.push(s.charAt(i));
       }
-
-      if(s.charAt(i) != ')') {
-
+      //System.out.println(str.toString());
+      if(s.charAt(i) == ')') {
+        temp = stack.pop();
+        while (temp != '(') {
+          str.append(temp);
+          System.out.println(temp);
+          temp = stack.pop();
+        }
+       stackSwitch = false;
       }
-    }
+
+      if(stackSwitch == false && s.charAt(i) != ')'){
+        str.append(s.charAt(i));
+      }
+     }
+
+     s = str.toString();
 
     return s;
   }
