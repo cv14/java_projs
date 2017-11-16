@@ -28,16 +28,25 @@ Guaranteed constraints:
 
 
 */
-
+import java.util.*;
 
 public class Alternating {
 
   static int[] alternatingSums(int[] a) {
+    int[] resultado = {0, 0};
 
+    for (int i = 0; i < a.length; i++) {
+      if( i % 2 == 0 ){ resultado[0] = resultado[0] + a[i];}
+      else{ resultado[1] = resultado[1] + a[i];}
+    }
+    return resultado;
   }
 
   public static void main(String[] args) {
 
+    int[] a =  {50, 60, 60, 45, 70};
+
+    System.out.println(Arrays.toString(alternatingSums(a)));
 
   }
 }
