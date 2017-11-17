@@ -22,13 +22,26 @@ areSimilar(a, b) = false.
 Any swap of any two elements either in a or in b won't make a and b equal.
 */
 
+//check order of both the arrays and if two swipes return false else true.
+
 public class Similar {
 
-  boolean areSimilar(int[] a, int[] b) {
+  static boolean areSimilar(int[] a, int[] b) {
+    int intercambiars = 0;
 
+    for (int i = 0; i < a.length; i++) {
+      if(a[i] != b[i] && intercambiars < 1){
+
+      }
+    }
+    return false;
   }
 
   public static void main(String[] args) {
+    int a[] = {4, 6, 3};
+    int b[] =  {3, 4, 6};
 
+
+    System.out.println(areSimilar(a,b));
   }
 }
