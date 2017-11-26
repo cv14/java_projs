@@ -27,6 +27,7 @@ Any swap of any two elements either in a or in b won't make a and b equal.
 public class Similar {
 
   static boolean areSimilar(int[] a, int[] b) {
+    if(Arrays.equals(a,b)){ return true;}
     int intercambiars = 0;
 
     for (int i = 0; i < a.length; i++) {
