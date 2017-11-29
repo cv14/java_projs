@@ -28,11 +28,16 @@ public class Similar {
 
   static boolean areSimilar(int[] a, int[] b) {
     if(Arrays.equals(a,b)){ return true;}
+
     int intercambiars = 0;
 
     for (int i = 0; i < a.length; i++) {
       if(a[i] != b[i] && intercambiars < 1){
-
+        //indA =
+        // call method
+        // pass the index and look for the match
+        // if found return true
+        //else return false
       }
     }
     return false;
