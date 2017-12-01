@@ -48,10 +48,11 @@ public class Similar {
 
     for (int i = 0; i < a.length; i++) {
       System.out.println(i);
-      if(a[i] != b[i] && intercambiars < 1){
+      if(a[i] != b[i]){
         if(skipInd == i){
-          break;
+          continue;
         }
+        intercambiars++;
         indA = findInd(b, a[i], i + 1);
         indB = findInd(a, b[i], i + 1);
         System.out.println(indA + "  " + indB);
@@ -61,6 +62,7 @@ public class Similar {
         skipInd = indA;
       }
     }
+    if(intercambiars > 1){ return false;}
     return true;
   }
 
@@ -71,8 +73,8 @@ public class Similar {
 
     //System.out.println(areSimilar(a,b));
 
-    int aa[] = {1,2,2};
-    int bb[] = {2, 1, 1};
+    int aa[] = {1, 2, 2, 2};
+    int bb[] = {1, 1, 1, 2};
     System.out.println(areSimilar(aa,bb));
   }
 }
