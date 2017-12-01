@@ -38,7 +38,7 @@ public class Similar {
 
   }
 
-  static boolean areSimilar(int[] a, int[] b) {
+  static boolean areSimilar1(int[] a, int[] b) {
     int indA = 0, indB = 0 ;
     int skipInd = -1;
 
@@ -66,6 +66,27 @@ public class Similar {
     return true;
   }
 
+  static int findInd(int[] a, int[] b, int valA, int valB, int start){
+    return 0;
+  }
+
+  static boolean areSimilar(int[] a, int[] b) {
+    int skipInd = -1;
+    if(Arrays.equals(a,b)){ return true;}
+
+    for (int i = 0; i < a.length; i++) {
+      if(a[i] != b[i]){
+        if(skipInd == i){
+          continue;
+        }
+        skipInd = findIndice(a, b, a[i], b[i], i);
+      }
+    }
+
+    //look for the 2 in b with 1 on top
+    return false;
+  }
+
   public static void main(String[] args) {
     int a[] = {4, 6, 3};
     int b[] =  {3, 4, 6};
@@ -73,8 +94,8 @@ public class Similar {
 
     //System.out.println(areSimilar(a,b));
 
-    int aa[] = {1, 2, 2, 2};
-    int bb[] = {1, 1, 1, 2};
+    int aa[] = {1, 2, 1, 2, 1, 2};
+    int bb[] = {1, 1, 1, 2, 2, 2};
     System.out.println(areSimilar(aa,bb));
   }
 }
