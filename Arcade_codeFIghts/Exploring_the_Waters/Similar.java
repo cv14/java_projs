@@ -66,25 +66,41 @@ public class Similar {
     return true;
   }
 
-  static int findInd(int[] a, int[] b, int valA, int valB, int start){
-    return 0;
+  static int findIndice(int[] a, int[] b, int valA, int valB, int start){
+
+    for (int i = start + 1; i < a.length; i++) {
+      if(b[i] == valA && a[i] == valB){
+        return i;
+      }
+    }
+    return -1;
   }
 
   static boolean areSimilar(int[] a, int[] b) {
     int skipInd = -1;
+    int intercambiars = 0;
+
     if(Arrays.equals(a,b)){ return true;}
 
     for (int i = 0; i < a.length; i++) {
       if(a[i] != b[i]){
+        intercambiars++;
+
         if(skipInd == i){
           continue;
         }
+        if(intercambiars > 1){
+          return false;
+        }
         skipInd = findIndice(a, b, a[i], b[i], i);
+        System.out.println(skipInd);
+
+        if(skipInd == -1){ return false;}
       }
     }
 
     //look for the 2 in b with 1 on top
-    return false;
+    return true;
   }
 
   public static void main(String[] args) {
@@ -92,7 +108,7 @@ public class Similar {
     int b[] =  {3, 4, 6};
 
 
-    //System.out.println(areSimilar(a,b));
+    System.out.println(areSimilar(a,b));
 
     int aa[] = {1, 2, 1, 2, 1, 2};
     int bb[] = {1, 1, 1, 2, 2, 2};
