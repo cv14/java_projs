@@ -25,12 +25,21 @@ The minimal number of moves needed to obtain a strictly increasing sequence from
  fits signed 32-bit integer type.
 */
 
-
+import java.util.*;
 
 public class Strictly_Increasing {
 
-  static int arrayChange(int[] inputArray) {
+  static int arrayChange(int[] inputArray){
+    int numeros_totales = 0;
 
+    for (int i = 1; i < inputArray.length; i++) {
+      while(inputArray[i] <= inputArray[i-1]){
+        numeros_totales++;
+        inputArray[i] = inputArray[i] + 1;
+      }
+    }
+
+    return numeros_totales;
   }
 
   public static void main(String[] args) {
