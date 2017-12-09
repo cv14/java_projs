@@ -35,5 +35,8 @@ public class Strictly_Increasing {
 
   public static void main(String[] args) {
 
+    int[] inputArray = {1,1,1};
+    System.out.println(arrayChange(inputArray));
+
   }
 }
