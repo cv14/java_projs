@@ -23,7 +23,8 @@ Guaranteed constraints:
 The maximal absolute difference.
 */
 
-AbsoluteDiff class ClassName {
+public class AbsoluteDiff  {
+
   static int arrayMaximalAdjacentDifference(int[] inputArray) {
     int maximoDiferencia = 0;
 
@@ -37,7 +38,7 @@ AbsoluteDiff class ClassName {
   }
 
   public static void main(String[] args) {
-    int inputArray = {2,4,1,0};
+    int[] inputArray = {2,4,1,0};
 
     System.out.println(arrayMaximalAdjacentDifference(inputArray));
   }
