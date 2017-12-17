@@ -48,6 +48,8 @@ public class CheckIP{
     int numbero;
     String[] partes = inputString.split("\\.");
 
+    if(partes.length != 4){return false;}
+
     for(int i = 0; i < 4; i++){
       try{
           numbero = Integer.parseInt(partes[i]);
@@ -64,7 +66,7 @@ public class CheckIP{
   }
 
   public static void main(String[] args) {
-    String inputString = ".16.254.1";
+    String inputString = "1";
 
     System.out.println(isIPv4Address(inputString));
   }
