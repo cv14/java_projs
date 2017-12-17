@@ -40,13 +40,32 @@ Guaranteed constraints:
 true if inputString satisfies the IPv4 address naming rules, false otherwise.
 
 */
+import java.util.Arrays;
+
 public class CheckIP{
 
   static boolean isIPv4Address(String inputString) {
+    int numbero;
+    String[] partes = inputString.split("\\.");
+
+    for(int i = 0; i < 4; i++){
+      try{
+          numbero = Integer.parseInt(partes[i]);
+      }catch(NumberFormatException e){
+        return false;
+      }
+
+      if( numbero < 0 || numbero > 255 ){
+        return false;
+      }
+    }
+
     return true;
   }
 
   public static void main(String[] args) {
-    
+    String inputString = ".16.254.1";
+
+    System.out.println(isIPv4Address(inputString));
   }
 }
