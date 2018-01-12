@@ -30,13 +30,29 @@ The desired length.
 */
 import java.util.*;
 
-public class obstacles {
+public class Obstacles {
 
   static int avoidObstacles(int[] inputArray) {
+    int max = 0;
+    int jump = 0;
+    int pos = 0 ;
 
+    Arrays.sort(inputArray);
+    jump = inputArray[0] + 1;
+    pos = jump;
+
+    while(pos < inputArray[inputArray.length - 1] ){
+      
+    }
+
+
+    max = inputArray[inputArray.length - 1];
+    return max;
   }
 
   public static void main(String[] args) {
+    int[] inputArray = {5, 3, 6, 7, 9};
+    System.out.println(avoidObstacles(inputArray));
 
   }
 }
