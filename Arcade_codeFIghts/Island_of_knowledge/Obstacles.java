@@ -36,13 +36,20 @@ public class Obstacles {
     int max = 0;
     int jump = 0;
     int pos = 0 ;
+    boolean[] postions = new boolean[40];
 
     Arrays.sort(inputArray);
+
+    for (int i = 0; i < 40; i++) {
+      
+    }
+
     jump = inputArray[0] + 1;
     pos = jump;
 
     while(pos < inputArray[inputArray.length - 1] ){
-      
+      pos = pos + jump;
+
     }
 
 
