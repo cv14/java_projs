@@ -39,22 +39,26 @@ public class Obstacles {
     boolean[] postions = new boolean[40];
 
     Arrays.sort(inputArray);
+    System.out.println(Arrays.toString(postions));
 
-    for (int i = 0; i < 40; i++) {
-      
+    for (int i = 0; i < inputArray.length; i++) {
+      postions[inputArray[i]] = true;
     }
 
+    System.out.println(Arrays.toString(postions));
+
     jump = inputArray[0] + 1;
-    pos = jump;
 
     while(pos < inputArray[inputArray.length - 1] ){
       pos = pos + jump;
+      if(postions[pos] == true){
+        pos = 0;
+        jump = jump + 1;
+      }
 
     }
-
-
-    max = inputArray[inputArray.length - 1];
-    return max;
+    
+    return jump;
   }
 
   public static void main(String[] args) {
