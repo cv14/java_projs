@@ -57,7 +57,7 @@ public class Obstacles {
       }
 
     }
-    
+
     return jump;
   }
 
